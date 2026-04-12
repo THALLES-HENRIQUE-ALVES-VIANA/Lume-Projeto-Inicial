@@ -1,5 +1,5 @@
 body.login-page {
-    background-image: url("../../assets/bg.jpg");
+    background-image: url("../../assets/Padrão\ fundo\(base\ roxa\ escuro\).png");
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -26,4 +26,36 @@ body.login-page {
 
 .login-error {
     color: #b42318;
+}
+
+.p-card {
+    border-radius: 1rem;
+    box-shadow: 0rem 0rem 1.5rem #000000;
+}
+
+.p-card-title {
+    font-size:2rem;
+}
+
+.p-card-content, .btn-entrar {
+    font-size: 1.2rem;
+}
+
+.p-card-title, .p-card-content{
+    color: #290377;
+}
+
+.btn-entrar {
+    background-color: #290377;
+    color: white;
+    border: 0rem;
+}
+
+.p-inputtext, .btn-entrar, .p-checkbox {
+    border-radius: 0.5rem;
+}
+
+.p-inputtext:hover, .btn-entrar:hover {
+    border-color: #44189f;
+    box-shadow: 0rem 0rem 0.5rem #44189f;
 }

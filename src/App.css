@@ -104,7 +104,6 @@ a {
 }
 
 .p-button-success,
-.btn-entrar,
 .btn-orange {
     background-color: #EB6625;
     border-color: #EB6625;
@@ -112,7 +111,6 @@ a {
 }
 
 .p-button-success:hover,
-.btn-entrar:hover,
 .btn-orange:hover {
     background-color: #d95c20;
     border-color: #d95c20;
