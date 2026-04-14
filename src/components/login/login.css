@@ -51,11 +51,35 @@ body.login-page {
     border: 0rem;
 }
 
+.p-inputtext:enabled:focus {
+    outline: 0 none;
+    outline-offset: 0;
+    box-shadow: 0 0 0 0.2rem #bc9aff;
+    border-color: #7639f2;
+}
+
 .p-inputtext, .btn-entrar, .p-checkbox {
     border-radius: 0.5rem;
 }
 
 .p-inputtext:hover, .btn-entrar:hover {
     border-color: #44189f;
+    box-shadow: 0rem 0rem 1rem #44189f;
+}
+
+.p-checkbox:hover .p-checkbox-box {
+    border-color: #44189f;
     box-shadow: 0rem 0rem 0.5rem #44189f;
+}
+
+.p-checkbox-box[data-p-highlight="true"] {
+    background: #44189f;
+    outline: 0 none;
+    outline-offset: 0;
+    box-shadow: 0 0 0 0.2rem #bc9aff;
+    border-color: #7639f2;;
+}
+
+.p-checkbox-box .p-checkbox-icon {
+    color: #ffffff !important;
 }
