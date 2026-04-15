@@ -86,46 +86,79 @@ a {
 
 .custom-menubar,
 .custom-menubar .p-menubar-root-list {
-    background-color: #151515;
-    border-color: #151515;
+    background-color: #22153a;
+    border-color: #0a021a;
     border-radius: 0;
 }
 
 .custom-menubar .p-menuitem-text,
 .welcome {
-    color: white;
+    color: #f0e9ff;
+    font-weight: bold;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: large;
 }
 
 .custom-menubar .p-menuitem-link:hover,
 .custom-menubar .p-menuitem-link:focus {
-    background-color: #EB6625;
-    border-color: #EB6625;
+    background-color: #f16342;
+    border-color: #f16342;
     color: white;
 }
 
 .p-button-success,
 .btn-orange {
-    background-color: #EB6625;
-    border-color: #EB6625;
+    background-color: #290377;
+    border-color: #290377;
     color: white;
+    border-radius: 0.5rem;
 }
 
 .p-button-success:hover,
-.btn-orange:hover {
-    background-color: #d95c20;
-    border-color: #d95c20;
+.btn-orange:hover,
+.p-button.p-button-danger:hover {
+    background-color: #44189f;
+    outline: 0 none;
+    outline-offset: 0;
+    box-shadow: 0 0 0 0.2rem #bc9aff;
+    border-color: #7639f2;
 }
 
-.btn-red-not-bg {
-    background-color: transparent;
-    border-color: #d92d20;
-    color: #d92d20;
-}
-
+.btn-red-not-bg,
 .btn-orange-not-bg {
     background-color: transparent;
-    border-color: #EB6625;
-    color: #EB6625;
+    border-color: #f16342;
+    color: #f16342;
+    border-radius: 0.5rem;
+}
+
+.p-button.p-button-danger{
+    color: #ffffff;
+    background: #290377;
+    border: #290377;
+    border-radius: 0.5rem;
+}
+
+.p-button.p-component.p-button-icon-only.p-button-outlined.p-button-rounded.p-button-danger {
+    background-color: transparent;
+    color: #b03cb7;
+    border: 1px solid #b03cb7;
+    border-radius: 100%;
+}
+
+.p-button.p-component.p-button-icon-only.p-button-outlined.p-button-rounded.p-button-danger:focus, 
+.p-button.p-component.p-button-icon-only.p-button-outlined.p-button-rounded.p-button-danger:hover {
+    outline: 0 none;
+    outline-offset: 0;
+    box-shadow: 0 0 0 0.2rem #f6b3f9;
+}
+
+.btn-red-not-bg:hover, .btn-orange-not-bg:hover {
+    background-color: transparent;
+    outline: 0 none;
+    outline-offset: 0;
+    box-shadow: 0 0 0 0.2rem #ffcabe;
+    border-color: #ff866a;
 }
 
 .linkedin-button {

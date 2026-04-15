@@ -5,7 +5,7 @@ import 'primereact/resources/primereact.min.css';
 import 'primeicons/primeicons.css';
 import 'primeflex/primeflex.css';
 import { Menubar } from 'primereact/menubar';
-import LogoTeddy from './assets/logo-teddy.png';
+import LogoLume from './assets/Logo_sem_titulo.png';
 import './App.css';
 import ProtectedRoute from './components/common/protected-route';
 import { ROUTES } from './constants/app-config';
@@ -17,17 +17,7 @@ const ListarEmpresasExternas = lazy(() => import('./components/empresas-externas
 const Sobre = lazy(() => import('./components/sobre/sobre'));
 
 function getGreeting() {
-  const hour = new Date().getHours();
-
-  if (hour < 12) {
-    return 'Bom dia';
-  }
-
-  if (hour < 18) {
-    return 'Boa tarde';
-  }
-
-  return 'Boa noite';
+  return 'Seja bem vindo(a) ao Lumi';
 }
 
 function App() {
@@ -63,7 +53,7 @@ function App() {
 
   const start = (
     <Link to={ROUTES.partners}>
-      <img alt="logo" src={LogoTeddy} height="40" className="mr-2" />
+      <img alt="logo" src={LogoLume} height="40" className="mr-2" />
     </Link>
   );
 
