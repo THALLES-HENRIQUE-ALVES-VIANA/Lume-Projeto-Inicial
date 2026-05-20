@@ -3,6 +3,7 @@ export const ROUTES = {
   partners: '/ListarParceiros',
   externalCompanies: '/ListarEmpresasExternas',
   about: '/Sobre',
+  licoes: '/Licoes',
 };
 
 export const STORAGE_KEYS = {

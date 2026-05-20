@@ -10,6 +10,7 @@ import './App.css';
 import ProtectedRoute from './components/common/protected-route';
 import { ROUTES } from './constants/app-config';
 import { clearSession, getStoredUsername, hasActiveSession } from './utils/session';
+import Licoes from './components/licoes/licoes';
 
 const Login = lazy(() => import('./components/login/login'));
 const ListarParceiros = lazy(() => import('./components/parceiros/listar-parceiros.component'));
@@ -46,9 +47,13 @@ function App() {
       command: () => navigate(ROUTES.about),
     },
     {
+      label: 'Lições',
+      command: () => navigate(ROUTES.licoes),
+    }, 
+    {
       label: 'Sair',
       command: handleLogout,
-    },
+    }, 
   ];
 
   const start = (
@@ -97,6 +102,14 @@ function App() {
               element={(
                 <ProtectedRoute>
                   <Sobre />
+                </ProtectedRoute>
+              )}
+            />
+            <Route
+              path={ROUTES.licoes}
+              element={(  
+                <ProtectedRoute>
+                  <Licoes />
                 </ProtectedRoute>
               )}
             />
