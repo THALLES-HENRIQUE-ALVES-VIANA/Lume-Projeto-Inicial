@@ -1,8 +1,43 @@
 .btn-add {
     padding: 20px;
     background: linear-gradient(90deg, #f16342, #b03cb7, #7639f2);
+    cursor: pointer;
 }
 
-.modal {
-    padding: 0px 40px 20px 40px;
+.modal-container {
+    text-align: right;
 }
+
+.content {
+    text-align: left;
+    padding: 20px 40px 20px 40px;
+}
+
+.titulo-licao {
+    font-size: 28px;
+    font-weight: bold;
+    align-self: center;
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.btn-close-modal {
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.btn-salvar {
+    color: white;
+    background: linear-gradient(90deg, #f16342, #b03cb7, #7639f2);
+    border-radius: 15px;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+}
+

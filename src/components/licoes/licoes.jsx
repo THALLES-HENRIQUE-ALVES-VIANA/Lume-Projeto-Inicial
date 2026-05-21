@@ -44,8 +44,12 @@ export default function Licoes() {
               isOpen={modalIsOpen}
               style={customStyles}
             >
-              <div className="modal">
-                  <h1>Lição</h1>
+              <div className="modal-container">
+                <button className="btn-close-modal" onClick={closeModal} rounded>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-x-icon lucide-x"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>  
+                  </button> 
+                <div className="content">
+                  <text className="titulo-licao">Lição</text><br /><br />
                   <form className="form-modal">
                     <label htmlFor="questao">Escreva a questão: </label><br />
                     <input type="text" /><br /><br />
@@ -59,7 +63,8 @@ export default function Licoes() {
                     <label htmlFor="alternativaC">Insira a alternativa C:</label><br />
                     <input type="text" /><br /><br />
                   </form>
-              <button onClick={closeModal}>Fechar</button> 
+                  <button className="btn-salvar">Salvar</button>
+                </div>
               </div>
             </Modal>
         </Card>
