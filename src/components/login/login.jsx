@@ -3,7 +3,7 @@ import { Button } from 'primereact/button';
 import { Card } from 'primereact/card';
 import { Checkbox } from 'primereact/checkbox';
 import { InputText } from 'primereact/inputtext';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import Cookies from 'js-cookie';
 import { ROUTES, STORAGE_KEYS } from '../../constants/app-config';
 import { persistUsername } from '../../utils/session';
@@ -13,11 +13,16 @@ export default function Login() {
   const navigate = useNavigate();
   const location = useLocation();
   const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
-  const [rememberMe, setRememberMe] = useState(Boolean(Cookies.get(STORAGE_KEYS.username)));
-  const [errorMessage, setErrorMessage] = useState('');
+  const [email, setEmail] = useState('');
+  const [senha, setSenha] = useState('');
 
+  const [rememberMe, setRememberMe] = useState(
+    Boolean(Cookies.get(STORAGE_KEYS.username))
+  );
+
+  const [errorMessage, setErrorMessage] = useState('');
   const destination = useMemo(() => {
+
     if (location.state?.from && location.state.from !== ROUTES.login) {
       return location.state.from;
     }
@@ -31,19 +36,19 @@ export default function Login() {
     return () => {
       document.body.classList.remove('login-page');
     };
+
   }, []);
 
   const handleSubmit = (event) => {
     event.preventDefault();
     const persistedUsername = persistUsername(username, rememberMe);
-
     if (!persistedUsername) {
       setErrorMessage('Informe um usuario para continuar.');
       return;
     }
 
     setErrorMessage('');
-    setPassword('');
+    setSenha('');
     navigate(destination, { replace: true });
   };
 
@@ -63,29 +68,56 @@ export default function Login() {
           </div>
 
           <div className="field">
-            <label htmlFor="password">Senha</label>
+            <label htmlFor="email">Email</label>
             <InputText
-              id="password"
+              id="email"
+              type="email"
+              value={email}
+              onChange={(event) => setEmail(event.target.value)}
+              autoComplete="email"
+            />
+
+          </div>
+          <div className="field">
+            <label htmlFor="senha">Senha</label>
+            <InputText
+              id="senha"
               type="password"
-              value={password}
-              onChange={(event) => setPassword(event.target.value)}
+              value={senha}
+              onChange={(event) => setSenha(event.target.value)}
               autoComplete="current-password"
             />
-          </div>
 
+          </div>
           <div className="field-checkbox">
             <Checkbox
               inputId="rememberMe"
               checked={rememberMe}
               onChange={(event) => setRememberMe(Boolean(event.checked))}
             />
-            <label htmlFor="rememberMe">Manter Conectado</label>
+
+            <label htmlFor="rememberMe">
+              Manter Conectado
+            </label>
           </div>
 
-          {errorMessage && <small className="login-error">{errorMessage}</small>}
+          {errorMessage && (
+            <small className="login-error">
+              {errorMessage}
+            </small>
+          )}
 
-          <Button type="submit" label="Entrar" className="btn-entrar" />
+          <Button type="submit" label="Entrar" className="btn-entrar"
+          />
+
         </form>
+        <p className="texto-cadastro">
+          Não tem conta?{" "}
+          <Link to="/cadastro" className="link-cadastro">
+            Clique aqui para se cadastrar
+          </Link>
+        </p>
+
       </Card>
     </div>
   );
