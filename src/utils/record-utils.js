@@ -78,6 +78,29 @@ export function normalizeCompanyStatus(value) {
   return value === true || value === 'Ativa' || value === 'ativa' || value === 'true' || value === 1 || value === '1';
 }
 
+// /src/utils/record-utils.js
+
+// ... outras funções que já existem (ex: de parceiros) ...
+
+export const buildLicaoPayload = (licao) => {
+  return {
+    id: licao.id,
+    title: licao.title,
+    questions: [licao.question],
+    options: [licao.option1, licao.option2, licao.option3].filter(Boolean),
+  };
+};
+
+export const normalizeLicao = (data) => {
+  if (!data) return {};
+  return {
+    id: data.id,
+    title: data.title || '',
+    questions: data.questions || [],
+    options: data.options || [],
+  };
+};
+
 export function getCompanyStatusLabel(value) {
   return normalizeCompanyStatus(value) ? 'Ativa' : 'Inativa';
 }

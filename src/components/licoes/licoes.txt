@@ -1,0 +1,40 @@
+const EMPTY_LESSON= {
+  title: '',
+  question: '',
+  option1: '',
+  option2: '',
+  option3: '',
+};
+
+return (
+    <div>
+      <Card>
+            <Dialog
+              visible={visible}
+              style={customStyles}
+              onHide={setVisible}
+            > 
+              <div className="dialog-container">
+                <div className="dialog-content">
+                  <text className="titulo-licao">Lição</text><br /><br />
+                  <form className="form-dialog">
+                    <label htmlFor="questao">Escreva a questão: </label><br />
+                    <input type="text" /><br /><br />
+
+                    <label htmlFor="alternativaA">Insira a alternativa A:</label><br />
+                    <input type="text" /><br /><br />
+
+                    <label htmlFor="alternativaB">Insira a alternativa B:</label><br />
+                    <input type="text" /><br /><br />
+
+                    <label htmlFor="alternativaC">Insira a alternativa C:</label><br />
+                    <input type="text" /><br /><br />
+
+                    <button className="btn-salvar" type="submit">Salvar</button>
+                  </form>
+                </div>
+              </div>
+            </Dialog>
+        </Card>
+    </div>
+  );

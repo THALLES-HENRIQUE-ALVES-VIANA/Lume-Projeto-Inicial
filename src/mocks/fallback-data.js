@@ -25,6 +25,16 @@ export const fallbackPartners = [
   },
 ];
 
+
+export const fallbackLicoes = [
+  {
+    id: "1",
+    title: "Minha Primeira Lição",
+    questions: ["Qual é a cor do cavalo branco de Napoleão?"],
+    options: ["Branco", "Preto", "Marrom"]
+  },
+];
+
 export const fallbackExternalCompanies = [
   {
     id: '201',

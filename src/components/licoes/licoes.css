@@ -1,3 +1,8 @@
+.adicionar-botao{
+    color: white;
+
+}
+
 .btn-add {
     padding: 15px;
     background: linear-gradient(90deg, #f16342, #b03cb7, #7639f2);
@@ -5,26 +10,3 @@
     color: white;
     font-weight: bold;
 }
-
-
-.dialog-content {
-    text-align: left;
-    padding: 10px 40px 10px 40px;
-    }
-
-.titulo-licao {
-    font-size: 28px;
-    font-weight: bold;
-    align-self: center;
-}
-
-.btn-salvar {
-    color: white;
-    background: linear-gradient(90deg, #f16342, #b03cb7, #7639f2);
-    border-radius: 15px;
-    padding: 10px;
-    border: none;
-    cursor: pointer;
-    font-weight: bold;
-}
-
