@@ -5,6 +5,7 @@ import './licoes.css';
 import plusbtn from '../../assets/plus.svg';
 import ReactDOM from 'react-dom';
 import Modal from 'react-modal';
+import { Dialog } from 'primereact/dialog'; 
 
 const customStyles = {
   content: {
@@ -17,40 +18,42 @@ const customStyles = {
   },
 };
 
+const EMPTY_LESSON= {
+  title: '',
+  question: '',
+  option1: '',
+  option2: '',
+  option3: '',
+};
+
 export default function Licoes() {
   const footer = (
     <div className="flex flex-column align-items-center">
     </div>
   );
 
-  const [modalIsOpen, setIsOpen] = React.useState(false);
+  const [visible, setVisible] = React.useState(false);
 
-  function openModal() {
-    setIsOpen(true);
-  }
-
-  
-  function closeModal() {
-    setIsOpen(false);
-  }
+  function openDialog() {
+    setVisible(true);
+  } 
 
   return (
     <div className="sobre flex justify-content-center align-items-center">
         <Card title="Conteúdo das lições" footer={footer}>
-            <Button className="btn-add" rounded onClick={openModal}>
+            <Button className="btn-add" rounded onClick={openDialog}>
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white    " stroke-width="4" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-plus-icon lucide-plus"><path d="M5 12h14"/><path d="M12 5v14"/></svg>
+                Adicionar lições
             </Button>
-            <Modal
-              isOpen={modalIsOpen}
+            <Dialog
+              visible={visible}
               style={customStyles}
-            >
-              <div className="modal-container">
-                <button className="btn-close-modal" onClick={closeModal} rounded>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-x-icon lucide-x"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>  
-                  </button> 
-                <div className="content">
+              onHide={setVisible}
+            > 
+              <div className="dialog-container">
+                <div className="dialog-content">
                   <text className="titulo-licao">Lição</text><br /><br />
-                  <form className="form-modal">
+                  <form className="form-dialog">
                     <label htmlFor="questao">Escreva a questão: </label><br />
                     <input type="text" /><br /><br />
 
@@ -62,11 +65,12 @@ export default function Licoes() {
 
                     <label htmlFor="alternativaC">Insira a alternativa C:</label><br />
                     <input type="text" /><br /><br />
+
+                    <button className="btn-salvar" type="submit">Salvar</button>
                   </form>
-                  <button className="btn-salvar">Salvar</button>
                 </div>
               </div>
-            </Modal>
+            </Dialog>
         </Card>
     </div>
   );
