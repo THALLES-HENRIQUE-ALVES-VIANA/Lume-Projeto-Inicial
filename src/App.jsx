@@ -11,6 +11,8 @@ import ProtectedRoute from './components/common/protected-route';
 import { ROUTES } from './constants/app-config';
 import { clearSession, getStoredUsername, hasActiveSession } from './utils/session';
 import Licoes from './components/licoes/licoes';
+import Cadastro from './components/cadastro/Cadastro';
+
 
 const Login = lazy(() => import('./components/login/login'));
 const ListarParceiros = lazy(() => import('./components/parceiros/listar-parceiros.component'));
@@ -26,7 +28,9 @@ function App() {
   const navigate = useNavigate();
   const isAuthenticated = hasActiveSession();
   const username = getStoredUsername();
-  const shouldShowMenu = isAuthenticated && location.pathname !== ROUTES.login;
+
+  const shouldShowMenu =
+    isAuthenticated && location.pathname !== ROUTES.login;
 
   const handleLogout = () => {
     clearSession();
@@ -64,47 +68,71 @@ function App() {
 
   const end = (
     <div className="welcome flex align-items-center gap-2">
-      <span className="mx-2">{username ? `${getGreeting()}, ${username}` : ''}</span>
+      <span className="mx-2">
+        {username ? `${getGreeting()}, ${username}` : ''}
+      </span>
     </div>
   );
 
   return (
     <div className="app-shell">
+
       {shouldShowMenu && (
-        <Menubar model={menuItems} start={start} end={end} className="custom-menubar" />
+        <Menubar
+          model={menuItems}
+          start={start}
+          end={end}
+          className="custom-menubar"
+        />
       )}
 
       <div className="page-container">
+
         <Suspense fallback={<div className="page-loading">Carregando...</div>}>
+
           <Routes>
+
             <Route
               path={ROUTES.login}
-              element={isAuthenticated ? <Navigate to={ROUTES.partners} replace /> : <Login />}
+              element={
+                isAuthenticated
+                  ? <Navigate to={ROUTES.partners} replace />
+                  : <Login />
+              }
             />
+
+            <Route
+              path="/cadastro"
+              element={<Cadastro />}
+            />
+
             <Route
               path={ROUTES.partners}
-              element={(
+              element={
                 <ProtectedRoute>
                   <ListarParceiros />
                 </ProtectedRoute>
-              )}
+              }
             />
+
             <Route
               path={ROUTES.externalCompanies}
-              element={(
+              element={
                 <ProtectedRoute>
                   <ListarEmpresasExternas />
                 </ProtectedRoute>
-              )}
+              }
             />
+
             <Route
               path={ROUTES.about}
-              element={(
+              element={
                 <ProtectedRoute>
                   <Sobre />
                 </ProtectedRoute>
-              )}
+              }
             />
+
             <Route
               path={ROUTES.licoes}
               element={(  
@@ -115,10 +143,18 @@ function App() {
             />
             <Route
               path="*"
-              element={<Navigate to={isAuthenticated ? ROUTES.partners : ROUTES.login} replace />}
+              element={
+                <Navigate
+                  to={isAuthenticated ? ROUTES.partners : ROUTES.login}
+                  replace
+                />
+              }
             />
+
           </Routes>
+
         </Suspense>
+
       </div>
     </div>
   );
