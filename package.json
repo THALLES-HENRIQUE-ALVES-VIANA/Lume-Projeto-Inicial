@@ -16,6 +16,7 @@
     "@supabase/supabase-js": "^2.106.1",
     "axios": "^1.15.0",
     "js-cookie": "^3.0.5",
+    "next-auth": "^5.0.0-beta.31",
     "primeflex": "^3.3.1",
     "primeicons": "^7.0.0",
     "primereact": "^10.8.2",
